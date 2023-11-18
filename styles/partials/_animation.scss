@@ -1,0 +1,118 @@
+$time : 1s;
+$ease : ease-out;
+
+@mixin exit ($var){
+
+    @keyframes exit {
+
+        50%{
+            transform: translateX($var) scale(0.8);
+        }
+        
+        75%{
+            z-index: -1;
+        }
+        
+        100%{
+            background-color: rgb(71, 0, 71);
+            transform: scale(0.4);
+            z-index: -1;
+        }
+    }
+
+    animation: exit $time $ease
+}
+@mixin enter ($var){
+
+    @keyframes enter {
+
+        0%{
+            transform: scale(0.4);
+            background-color: black;
+        }
+
+        50%{
+            transform: translateX($var) scale(0.8);
+        }
+        74%{
+            z-index: -1;
+        }
+        75%{
+            z-index: 1;
+        }
+        100%{
+            transform: scale(1);
+            z-index: 1;
+        }
+    }
+
+    animation: enter $time $ease
+}
+@mixin exit-reverse ($var){
+
+    @keyframes exit-reverse {
+
+        20%{
+            background-color: grey;
+
+        }
+
+        50%{
+            transform: translateX($var) scale(0.8);
+        }
+
+        85%{
+            z-index: -1;
+        }
+        
+        100%{
+            transform: scale(0.4);
+            z-index: -1;
+            background-color: black;
+        }
+    }
+
+    animation: exit-reverse $time $ease 
+}
+@mixin enter-reverse ($var){
+
+    @keyframes enter-reverse {
+
+        0%{
+            background-color: rgb(71, 0, 71);
+            transform: scale(0.4);
+        }
+        
+        50%{
+            transform: translateX($var) scale(0.8);
+        }
+        51%{
+            z-index: -1;
+        }
+        75%{
+            z-index: 1;
+        }
+        100%{
+            transform: scale(1);
+            z-index: 1;
+        }
+    }
+
+    animation: enter-reverse $time $ease
+}
+
+.enter-reverse{
+   @include enter-reverse (-300px);
+}    
+
+.exit-reverse{
+    @include exit-reverse (300px);
+}
+
+.enter{
+   @include enter (300px);
+}    
+
+.exit{
+    @include exit (-300px);
+}

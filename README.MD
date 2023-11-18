@@ -1,0 +1,1 @@
+This is a news filtering and contextualizing application.
