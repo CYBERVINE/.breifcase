@@ -1,4 +1,4 @@
-import {NEWSKEY} from "./keys.js"
+import {NEWSKEY} from "../NODESERVER/keys.mjs"
 
 const brief = document.getElementById('card__home--button-breif')
 const done = document.getElementById('card__summary--button-done')
